@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int n, k, x, y, res=0;
+    scanf("%d %d", &n, &k);
+    int *list = (int *) malloc (sizeof(int) * n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &list[i]);
+    }
+
+    for (int j = 0; j < n; j++) {
+        for (int i = 0; i < n-1; i++) {
+            if ((list[i]>list[i+1])&&(res<k)) {
+                x = list[i];
+                y = list[i+1];
+                list[i] = y;
+                list[i+1] = x;
+                res++;
+            }
+        }
+    }
+    if (res < k) printf("%d", -1);
+    else printf("%d %d", y, x);
+    return 0;
+}
