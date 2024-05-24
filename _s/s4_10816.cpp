@@ -33,3 +33,10 @@ int main() {
         cout << list[cur].quantity << " ";
     }
 }
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    
+}
