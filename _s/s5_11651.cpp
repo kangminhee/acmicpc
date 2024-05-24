@@ -1,20 +1,32 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
-class coor {
-public:
-    int x;
-    int y;
-};
+typedef struct coor {
+    int x; int y;
+} coor;
+
+int comp(const void *first, const void *second) {
+    coor *a = (coor*)first;
+    coor *b = (coor*)second;
+    
+    if (a->y > b->y) return 1;
+    else if (a->y < b->y) return -1;
+    else {
+        if (a->x > b->x) return 1;
+        else if (a->x < b->x) return -1;
+        else return 0;
+    }
+}
 
 int main() {
     int n; cin >> n;
-    coor * list = new coor[n];
-
+    coor list[101010] = {};
     for (int i = 0; i < n; i++) {
         cin >> list[i].x >> list[i].y;
     }
-    for (int i = 0; i < n; i++) {
-        for (int j = 0)
+    qsort(list, n, sizeof(list[0]), comp);
+
+    for (int i =0; i < n; i++) {
+        cout << list[i].x << " " << list[i].y << "\n";
     }
 }
