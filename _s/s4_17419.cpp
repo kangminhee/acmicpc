@@ -7,18 +7,10 @@ int main() {
     for (int i = n; i > 0; i--) {
         cin >> x;
         if (x == '1') {
-            tmp = 1;
-            for (int j = 0; j < i-1; j++) {
-                tmp *= 2;
-            }
-            num += tmp;
+            res ++;
         } else {
             continue;
         }
-    }
-    while (num != 0) {
-        num = num-(num&((~num)+1));
-        res++;
     }
     cout << res;
 }

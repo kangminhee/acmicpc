@@ -1,18 +1,19 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
+# define MAX 101010
+int arr[MAX], dp[MAX];
+
 int main() {
-    int n; cin >> n;
-    int l[n+1];
-    l[0] = 0;
+    int n, res=0; cin >> n;
     for (int i = 1; i <= n; i++) {
-        cin >> l[i];
-        l[i] += l[i-1];
+        cin >> arr[i];
     }
-
+    res = dp[1] = arr[1];
     for (int i = 1; i <= n; i++) {
-        cout << l[i] << " ";
+        dp[i] = max(dp[i-1]+arr[i], arr[i]);
+        res = max(dp[i], res);
     }
-
-    cout << endl;
+    cout << res;
+    return 0;
 }
