@@ -2,13 +2,12 @@
 using namespace std;
 
 #define MAX 1010
-int n, m, v, c1[MAX], check;
+int n, m, v, c1[MAX], res;
 bool graph[MAX][MAX];
 
 void DFS(int v) {
     // cout << v << " ";
     c1[v] = 1;
-    check++;
     for (int i = 1; i <= n; i++) {
         if (graph[v][i] && !c1[i]) DFS(i);
     }
@@ -24,7 +23,12 @@ int main() {
         cin >> u >> v;
         graph[u][v] = graph[v][u] = 1;
     }
-    DFS(u);
-    if (check < n) cout << "false";
-    else cout << "true";
+    for (int i = 1; i <= n; i++) {
+        if (!c1[i]) {
+            DFS(i);
+            res++;
+        }
+    }
+    cout << res;
+    return 0;
 }

@@ -1,13 +1,9 @@
 #include <iostream>
-#include <map>
 using namespace std;
 
 int main() {
     int n, m, res = 0; cin >> n >> m;
     char c;
-
-    map<int, int> list;
-    
     int * list = new int[n];
 
     cin >> c;
@@ -29,6 +25,6 @@ int main() {
     }
 
     cout << res;
-
+    
     return 0;
 }
