@@ -12,7 +12,7 @@ matrix Mul(const matrix &a, const matrix &b) {
     matrix c(c, vector<ll>(n));
     for (int i = 0; i < n; i++) {
         for (int k = 0; k < n; k++) {
-I            for (int j = 0; j < n; j++) {
+            for (int j = 0; j < n; j++) {
                 c[i][j] = (c[i][j] + a[i][k] * b[k][j]) % MOD;
             }
         }
